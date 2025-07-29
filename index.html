@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Riders - Rider Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .card {
+      perspective: 1000px;
+    }
+    .card-inner {
+      transition: transform 0.6s ease-in-out;
+      transform-style: preserve-3d;
+      position: relative;
+      border: 4px double #252626;
+      border-radius: 1rem;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-10">Our 2025 Riders</h1>
+    <h2 class="text-xl font-semibold text-center">Want to feature or know someone who deserves a feature? Email us here: media@rhlactivities.com</h2>
+    <p class="text-sm text-gray-500 text-center mb-2">click on the cards to learn more about the riders and stories</p>
+    
+    <!-- Filter Buttons -->
+    <div class="flex justify-center gap-4 mb-10">
+      <button onclick="filterCards('red')" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded">Star Riders</button>
+      <button onclick="filterCards('blue')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded">Ones to Watch</button>
+      <button onclick="filterCards('yellow')" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded">Featured</button>
+      <button onclick="filterCards('all')" class="bg-gray-300 hover:bg-gray-400 text-black font-semibold px-4 py-2 rounded">All</button>
+    </div>
+
+    <!-- Card Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="card-container">
+
+      <!-- 🟨 Brian Broekaert with horizontal leaflet -->
+      <div class="relative group w-full md:col-span-2">
+        <div class="card h-96 cursor-pointer filter-card yellow" onclick="toggleLeaflet(this)">
+          <div class="card-inner w-full h-full">
+            <div class="card-front bg-white shadow-lg">
+              <img src="https://dl.dropboxusercontent.com/scl/fi/llw6h8nf1xvi3y9b9o34i/Brian.png?rlkey=h9wfl8xwywuqmrzjk5k81q3r1&st=48d4642p&dl" alt="Brian Broekaert" class="w-full h-48 object-cover">
+              <div class="w-full bg-yellow-400 text-black text-center text-xs font-bold py-2">Quad Solo</div>
+              <div class="p-4">
+                <h2 class="text-xl font-semibold">Brian Broekaert</h2>
+                <p class="text-sm text-gray-500 mb-2">🇨🇦 Canada</p>
+                <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+                  <li>The story of Brian's journey</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaflet Panel -->
+        <div class="leaflet-panel absolute top-0 left-full ml-4 w-[350px] h-96 bg-white border border-gray-300 rounded-lg p-4 shadow-lg overflow-y-auto hidden z-50">
+          <h3 class="text-xl font-bold mb-2">📖 Brian's Full Story</h3>
+          <p class="text-sm text-gray-700 mb-2">
+            “I found the race on YouTube and dropped a comment on your Facebook. A great man named Greg messaged me and offered to let me race his Yamaha YFZ450...”
+          </p>
+          <p class="text-sm text-gray-700">
+            “So I booked a flight from Montreal, landed in Bristol on Thursday — and we drove straight to Weston Beach and raced! We had a great start… but after one hour, the engine completely blew up.” 💥
+          </p>
+          <a href="https://www.instagram.com/bro3kaert173/" target="_blank" class="mt-4 inline-block bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-4 py-2 rounded shadow">Follow Brian</a>
+        </div>
+      </div>
+
+      <!-- ⬇️ Add your other rider cards below this inside #card-container -->
+
+    </div>
+  </div>
+
+  <script>
+    function filterCards(color) {
+      const cards = document.querySelectorAll('.filter-card');
+      cards.forEach(card => {
+        if (color === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.toggle('hidden', !card.classList.contains(color));
+        }
+      });
+    }
+
+    function toggleLeaflet(card) {
+      const leaflet = card.parentElement.querySelector('.leaflet-panel');
+      leaflet.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
