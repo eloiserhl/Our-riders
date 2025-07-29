@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flip Card Scrollable Back</title>
+  <title>Scrollable Flip Card</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     .card {
@@ -15,6 +15,7 @@
       position: relative;
       border: 4px double #252626;
       border-radius: 1rem;
+      height: 100%;
     }
     .card.flipped .card-inner {
       transform: rotateY(180deg);
@@ -28,52 +29,49 @@
       width: 100%;
       height: 100%;
       border-radius: 1rem;
-      overflow: hidden;
     }
     .card-back {
       transform: rotateY(180deg);
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 flex justify-center items-center min-h-screen p-6">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
 
-  <!-- Flip Card -->
-  <div class="card h-96 w-80 cursor-pointer" onclick="this.classList.toggle('flipped')">
+  <!-- Flip Card Container -->
+  <div class="card w-80 h-96 cursor-pointer" onclick="this.classList.toggle('flipped')">
     <div class="card-inner w-full h-full">
 
-      <!-- FRONT SIDE -->
-      <div class="card-front bg-white shadow-lg">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/llw6h8nf1xvi3y9b9o34i/Brian.png" alt="Brian Broekaert" class="w-full h-48 object-cover">
+      <!-- Front Side -->
+      <div class="card-front bg-white shadow-lg overflow-hidden flex flex-col">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/llw6h8nf1xvi3y9b9o34i/Brian.png" class="w-full h-48 object-cover" alt="Brian">
         <div class="w-full bg-yellow-400 text-black text-center text-xs font-bold py-2">Quad Solo</div>
-        <div class="p-4">
+        <div class="p-4 flex-1">
           <h2 class="text-xl font-semibold">Brian Broekaert</h2>
           <p class="text-sm text-gray-500 mb-2">🇨🇦 Canada</p>
-          <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+          <ul class="text-sm text-gray-700 list-disc list-inside">
             <li>The story of Brian's journey</li>
           </ul>
         </div>
       </div>
 
-      <!-- BACK SIDE (scrollable + fade) -->
-      <div class="card-back bg-white text-gray-900 px-6 py-8 flex flex-col items-center text-center overflow-y-auto max-h-full relative">
+      <!-- Back Side (scrollable) -->
+      <div class="card-back bg-white text-gray-900 px-6 py-8 flex flex-col text-center overflow-y-auto h-full relative">
         <h3 class="text-xl font-bold mb-4 border-b border-gray-300 pb-2 w-full">📖 The Story</h3>
-        <ul class="text-sm space-y-3 text-left w-full">
+        <ul class="text-sm space-y-3 text-left w-full flex-1">
           <li><span class="font-semibold text-gray-600">Years Active:</span> Riders come from all over the world to race Weston.</li>
           <li>In 2024, Brian flew in from Canada after discovering the race on YouTube.</li>
           <li>“I found the race on YouTube and dropped a comment on your Facebook. A great man named Greg messaged me and offered to let me race his Yamaha YFZ450.”</li>
           <li>“So I booked a flight from Montreal, landed in Bristol on Thursday — and we drove straight to Weston Beach and raced!”</li>
           <li>“We had a great start… but after one hour, the engine completely blew up.” 💥</li>
-          <li>It was a once-in-a-lifetime story that continues to inspire riders everywhere to take a chance and race.</li>
-          <li>He's hoping to return in 2025 with a new machine and a bigger team.</li>
-          <li>Stay tuned!</li>
+          <li>He plans to return next year better prepared.</li>
+          <li>This story is inspiring thousands worldwide.</li>
+          <li>Watch out for his comeback.</li>
         </ul>
-        <div class="mt-6 z-10">
-          <a href="https://www.instagram.com/bro3kaert173/" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-6 py-3 rounded shadow">
-            Follow Brian
-          </a>
+        <div class="mt-4">
+          <a href="https://www.instagram.com/bro3kaert173/" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-6 py-2 rounded shadow">Follow Brian</a>
         </div>
-        <!-- Fade bottom indicator -->
-        <div class="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white pointer-events-none z-0"></div>
+        <!-- Scroll hint gradient -->
+        <div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
       </div>
 
     </div>
