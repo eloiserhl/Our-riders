@@ -51,47 +51,67 @@
 
     <!-- Card Container -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="card-container">
-<!-- Flip Card -->
-<div class="card h-96 cursor-pointer filter-card yellow" onclick="this.classList.toggle('flipped')">
-  <div class="card-inner w-full h-full">
-    
-    <!-- FRONT SIDE -->
-    <div class="card-front bg-white shadow-lg">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/llw6h8nf1xvi3y9b9o34i/Brian.png" alt="Brian Broekaert" class="w-full h-48 object-cover">
-      <div class="w-full bg-yellow-400 text-black text-center text-xs font-bold py-2">Quad Solo</div>
-      <div class="p-4">
-        <h2 class="text-xl font-semibold">Brian Broekaert</h2>
-        <p class="text-sm text-gray-500 mb-2">🇨🇦 Canada</p>
-        <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
-          <li>The story of Brian's journey</li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- BACK SIDE (scrollable) -->
-    <div class="card-back bg-white text-gray-900 px-6 py-8 flex flex-col items-center text-center overflow-y-auto max-h-full">
-      <h3 class="text-xl font-bold mb-4 border-b border-gray-300 pb-2 w-full">📖 The Story</h3>
-      <ul class="text-sm space-y-3 text-left w-full">
-        <li>
-          <span class="font-semibold text-gray-600">Years Active:</span>
-          Riders come from all over the world to race Weston. 🌍 In 2024, Brian flew in from Canada after discovering the race on YouTube.
-        </li>
-        <li>
-          “I found the race on YouTube and dropped a comment on your Facebook. A great man named Greg messaged me and offered to let me race his Yamaha YFZ450.”
-        </li>
-        <li>
-          “So I booked a flight from Montreal, landed in Bristol on Thursday — and we drove straight to Weston Beach and raced!”
-        </li>
-        <li>
-          <strong>The result?</strong> “We had a great start… but after one hour, the engine completely blew up.” 💥
-        </li>
-      </ul>
-      <div class="mt-6">
-        <a href="https://www.instagram.com/bro3kaert173/" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-6 py-3 rounded shadow">
-          Follow Brian
-        </a>
-      </div>
-    </div>
+      <!-- Flip Card -->
+      <div class="card h-96 cursor-pointer filter-card yellow" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner w-full h-full">
 
+          <!-- FRONT SIDE -->
+          <div class="card-front bg-white shadow-lg">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/llw6h8nf1xvi3y9b9o34i/Brian.png" alt="Brian Broekaert" class="w-full h-48 object-cover">
+            <div class="w-full bg-yellow-400 text-black text-center text-xs font-bold py-2">Quad Solo</div>
+            <div class="p-4">
+              <h2 class="text-xl font-semibold">Brian Broekaert</h2>
+              <p class="text-sm text-gray-500 mb-2">🇨🇦 Canada</p>
+              <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+                <li>The story of Brian's journey</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BACK SIDE (scrollable) -->
+          <div class="card-back bg-white text-gray-900 px-6 py-8 flex flex-col items-center text-center overflow-y-auto max-h-full">
+            <h3 class="text-xl font-bold mb-4 border-b border-gray-300 pb-2 w-full">📖 The Story</h3>
+            <ul class="text-sm space-y-3 text-left w-full">
+              <li>
+                <span class="font-semibold text-gray-600">Years Active:</span>
+                Riders come from all over the world to race Weston. 🌍 In 2024, Brian flew in from Canada after discovering the race on YouTube.
+              </li>
+              <li>
+                “I found the race on YouTube and dropped a comment on your Facebook. A great man named Greg messaged me and offered to let me race his Yamaha YFZ450.”
+              </li>
+              <li>
+                “So I booked a flight from Montreal, landed in Bristol on Thursday — and we drove straight to Weston Beach and raced!”
+              </li>
+              <li>
+                <strong>The result?</strong> “We had a great start… but after one hour, the engine completely blew up.” 💥
+              </li>
+            </ul>
+            <div class="mt-6">
+              <a href="https://www.instagram.com/bro3kaert173/" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-6 py-3 rounded shadow">
+                Follow Brian
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End Card -->
+
+    </div>
   </div>
-</div>
+
+  <script>
+    function filterCards(color) {
+      const cards = document.querySelectorAll('.filter-card');
+      cards.forEach(card => {
+        if (color === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.toggle('hidden', !card.classList.contains(color));
+        }
+      });
+    }
+  </script>
+</body>
+</html>
