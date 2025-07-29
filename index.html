@@ -232,7 +232,6 @@
         </div>
       </div>
     </div>
-
     <!-- Brad Thornhill -->
 <div class="card h-96 cursor-pointer filter-card blue" onclick="this.classList.toggle('flipped')">
   <div class="card-inner w-full h-full">
@@ -262,23 +261,6 @@
 </div>
     </div>
   </div>
-  <script>
-    function filterCards(color) {
-      const cards = document.querySelectorAll('.filter-card');
-      cards.forEach(card => {
-        if (color === 'all') {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.toggle('hidden', !card.classList.contains(color));
-        }
-      });
-    }
-  </script>
-</body>
-</html>
-
-  </div>
-
   <script>
     function filterCards(color) {
       const cards = document.querySelectorAll('.filter-card');
